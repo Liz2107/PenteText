@@ -27,7 +27,15 @@ public class UserPlay
 		pTwoRow = pTwoMoveInput.nextInt();
 		pTwoCol = pTwoMoveInput.nextInt();
 		System.out.println(pTwoRow + " " + pTwoCol);
-		Grid.grid[pTwoRow - 1][pTwoCol - 1] = 'X';
+		if(Grid.grid[pTwoRow - 1][pTwoCol - 1] != '+')
+		{
+			System.out.println("Illegal move. Try again.");
+		}
+		else
+		{
+			Grid.grid[pTwoRow - 1][pTwoCol - 1] = 'X';
+		}
+		
 		//checkWin(pTwoRow, pTwoCol);
 	}
 	public static void checkSteal(int row, int col)
@@ -131,9 +139,19 @@ public class UserPlay
 				start = startRow;
 			else
 				start = startCol;
+			if(startCol == 17)
+			{
+				start = startRow;
+			}
 			for(int n = start; n < 18; n++)
 			{
 				System.out.println(startRow + " " + startCol);
+				if(startRow < 0 || startCol < 0)
+				{
+					n = 18;
+				}
+				else
+				{
 				if(Grid.grid[row - 1][col - 1] == Grid.grid[startRow][startCol])
 					diagHLCount ++;
 				else
@@ -142,6 +160,7 @@ public class UserPlay
 					Main.gameOver = true;
 				startRow++;
 				startCol--;
+				}
 			}
 		}
 		
