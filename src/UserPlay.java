@@ -135,33 +135,60 @@ public class UserPlay
 			
 			//set limits so that it can't get out of bounds rows or cols
 			System.out.println("Row: " + startRow + " Col: " + startCol);
-			if(startRow > startCol)
-				start = startRow;
-			else
+			if(startRow == 17)
+			{
 				start = startCol;
-			if(startCol == 17)
-			{
-				start = startRow;
-			}
-			for(int n = start; n < 18; n++)
-			{
-				System.out.println(startRow + " " + startCol);
-				if(startRow < 0 || startCol < 0)
+				for(int n = start; n < 18; n++)
 				{
-					n = 18;
-				}
-				else
-				{
-				if(Grid.grid[row - 1][col - 1] == Grid.grid[startRow][startCol])
-					diagHLCount ++;
-				else
-					diagHLCount = 0;
-				if(diagHLCount >= 5)
-					Main.gameOver = true;
-				startRow++;
-				startCol--;
+					System.out.println(startRow + " " + startCol);
+					if(startRow < 0 || startCol < 0)
+					{
+						n = 18;
+					}
+					else
+					{
+					if(Grid.grid[row - 1][col - 1] == Grid.grid[startRow][startCol])
+						diagHLCount ++;
+					else
+						diagHLCount = 0;
+					if(diagHLCount >= 5)
+						Main.gameOver = true;
+					startRow--;
+					startCol++;
+					}
 				}
 			}
+			else
+			{
+				if(startRow > startCol)
+					start = startRow;
+				else
+					start = startCol;
+				if(startCol == 17)
+				{
+					start = startRow;
+				}
+				for(int n = start; n < 18; n++)
+				{
+					System.out.println(startRow + " " + startCol);
+					if(startRow < 0 || startCol < 0)
+					{
+						n = 18;
+					}
+					else
+					{
+					if(Grid.grid[row - 1][col - 1] == Grid.grid[startRow][startCol])
+						diagHLCount ++;
+					else
+						diagHLCount = 0;
+					if(diagHLCount >= 5)
+						Main.gameOver = true;
+					startRow++;
+					startCol--;
+					}
+				}
+			}
+			
 		}
 		
 		
