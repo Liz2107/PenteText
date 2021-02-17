@@ -40,7 +40,41 @@ public class UserPlay
 	}
 	public static void checkSteal(int row, int col)
 	{
-		
+		//check corners
+		if((row == 1 && col == 1) || (row == 18 && col == 1) || (col == 18 && row == 1) || (col == 18 && row == 18))
+		{
+			
+		}
+		//check sides
+		else if(row < 4)
+		{
+			for(int i = 0; i < 4; i++)
+			{
+				
+			}
+			if(Grid.grid[row][col + 1] != Grid.grid[row][col] && Grid.grid[row][col + 1] != '+' && Grid.grid[row][col + 2] != Grid.grid[row][col] && Grid.grid[row][col + 2] != '+' && Grid.grid[row][col + 3] == Grid.grid[row][col])
+			{		
+				System.out.println("R Hor Win");
+			}
+			}
+			
+		else if(row > 4)
+		{
+			
+		}
+		else if(col > 4)
+		{
+			
+		}
+		else if(col < 4)
+		{
+			
+		}
+		//check middle
+		else
+		{
+			
+		}
 	}
 	public static void checkWin(int row, int col)
 	{
