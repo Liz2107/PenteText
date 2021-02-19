@@ -40,6 +40,13 @@ public class UserPlay
 	}
 	public static void checkSteal(int row, int col)
 	{
+		if(Grid.grid[row][col] == 'O' && Grid.grid[row][col + 1] == 'X' && Grid.grid[row][col + 2] == 'X' && Grid.grid[row][col + 3] == 'O')
+		{
+			Grid.grid[row][1] = '+';
+			Grid.grid[row][2] = '+';
+			Grid.printGrid();
+		}
+		
 		//check corners
 		if((row == 1 && col == 1) || (row == 18 && col == 1) || (col == 18 && row == 1) || (col == 18 && row == 18))
 		{
